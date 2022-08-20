@@ -4,6 +4,7 @@
     - Integrated terminal and file explorer w/o complicated/unnecessary editor popups and other BS is clean, nice, and refreshing
 - Some of the defaults in R are surprisingly intuitive
 - Running an r file on the terminal with `R < example_r.r --no-save` auto-generated a PDF of the plot and that's rad! What useful defaults!
+- Command + Enter runs a line or a selection of code.
 
 ## Interesting and Intuitive Tidbits
 - R's `print` function returns the value and datatype that prints. That's interesting b/c it matches most people's expectation of print instead of a void function.
