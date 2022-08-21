@@ -64,3 +64,46 @@ ggplot(data = mpg) +
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, alpha = class, size=class, shape=class))
 
+
+# Plotting multiple plots from categories with facets are powerful. 
+# Facets are subplots for-each category population
+# "formula" in R here is not an "equation", it's a name of a data structure in R.
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_wrap(~ class, nrow = 2)
+  
+# Facet on the drivetrain
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_wrap(~ drv, nrow = 2)
+
+
+# Facet on drv ~ cyl
+# We can facet on multiple categorical values, holy moly!
+# Seaborn can do this, too with sns.relplot(data=tips, x="total_bill", y="tip", hue="day", col="time", row="sex")
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_wrap(drv ~ cyl)
+
+
+# I'm not yet sure how the formula of . ~ cyl is different than ~ cyl.
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_wrap(. ~ cyl)
+
+# Make columns for-each drivetrain
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid(. ~ drv)
+
+# Make rows for-each drivetrain
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid(drv ~ .)
+
+# Make columns foreach class of vehicle and wrap around to make two rows
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)
+
+
