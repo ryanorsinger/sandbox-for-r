@@ -24,7 +24,7 @@ ggplot(
 
 
 
-
+# This next example shows a line of best fit to the entire species variable, but colors broken out by species
 ggplot(
   data = penguins,
   mapping = aes(x = flipper_length_mm, y = body_mass_g), # aesthetics layer for the visual properties
@@ -32,4 +32,16 @@ ggplot(
   geom_point(mapping = aes(color = species, shape = species)) + # sets the color mapping to only the scatterplot geometry layer. LOCAL aesthetics, to this geom_point
   geom_smooth(method="lm")
 
+
+
   
+
+# This next example shows a line of best fit to the entire species variable, but colors broken out by species
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g), # aesthetics layer for the visual properties
+) +
+  geom_point(mapping = aes(color = species, shape = species)) + # sets the color mapping to only the scatterplot geometry layer. LOCAL aesthetics, to this geom_point
+  geom_smooth(method="loess", formula = y ~ x)
+
+
